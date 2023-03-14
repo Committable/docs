@@ -11,5 +11,8 @@ export default [
 	{ text: 'Start Here', header: true, type: 'learn', key: 'startHere' },
 	{ text: 'Overview', slug: 'overview', key: 'overview' },
 	{ text: 'Getting Started', slug: 'getting-started', key: 'getting-started' },
+
+	{ text: 'Tutorials', header: true, type: 'learn', key: 'tutorials' },
+	{ text: 'Mint a COMMIT', slug: 'tutorial/0-introduction', key: 'mint-tutorial' },
 	{ text: 'Guides', header: true, type: 'learn', key: 'features' },
 ] as const;
