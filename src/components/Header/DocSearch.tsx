@@ -49,9 +49,9 @@ export default function Search({ lang = 'en', labels }: Props) {
 			initialQuery={initialQuery}
 			initialScrollY={window.scrollY}
 			onClose={onClose}
-			indexName="committable-docs"
-			appId="5WFJHXVLXR"
-			apiKey="b392b1211d604b45f4950901a68553e6"
+			indexName="committable"
+			appId="A4APBMWTLV"
+			apiKey="98f2565f160872d817e9604e9d2eb33a"
 			searchParameters={{ facetFilters: [[`lang:${lang}`]] }}
 			getMissingResultsUrl={({ query }: { query: string }) =>
 				`https://github.com/Committable/docs/issues/new?title=Missing+results+for+query+%22${encodeURIComponent(
