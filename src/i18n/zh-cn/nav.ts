@@ -3,6 +3,8 @@ import { NavDictionary } from '../translation-checkers';
 export default NavDictionary({
 	startHere: '起步',
 	'getting-started': '入门指南',
+	"overview": "概述",
+	
 	install: '安装',
 	'editor-setup': '编辑器设置',
 	'reference/cli-reference': '命令行',
@@ -53,6 +55,9 @@ export default NavDictionary({
 	'guides/typescript': 'TypeScript',
 	'guides/aliases': '路径别名',
 	'guides/environment-variables': '环境变量',
+
+	'build-committable': '如何构建 Committable',
+	'docs-search': '文档搜索',
 
 	reference: '参考',
 	'reference/configuration-reference': '配置',
