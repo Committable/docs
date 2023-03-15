@@ -1,0 +1,57 @@
+---
+title: Document Search Configuration
+description: How Committable sets up document indexing
+i18nReady: true
+---
+import Button from '~/components/Button.astro'
+
+Committable uses [withastro/docs](https://github.com/withastro/docs) as the foundation for building its documentation website, and [Algolia DocSearch](https://docsearch.algolia.com/) as the search engine.
+
+## Guide from GhatGPT
+
+:::tip[GPT-4 Powered]
+How do you use Algolia DocSearch for indexing website documentation? Please introduce the entire process from application to configuration.
+:::
+
+Algolia DocSearch is a free search service designed specifically for technical documentation and open-source projects. Below is the process for using Algolia DocSearch for indexing website documentation:
+
+1. Apply for DocSearch: Visit the [Algolia DocSearch website](https://docsearch.algolia.com/), click the "Apply" button. Fill out the application form, providing information about your documentation and project. After submitting the application, you'll need to wait for Algolia's team to review it. Once approved, you'll receive an email containing a DocSearch API Key and index name.
+
+<Button href="https://docsearch.algolia.com/apply">Apply</Button>
+
+2. Add DocSearch CSS to your website: In your website's `<head>` tag, add the following code to include DocSearch's stylesheet:
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css" />
+```
+
+3. Add DocSearch JavaScript to your website: Before the `</body>` tag of your website, add the following code to include DocSearch's JavaScript library:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+```
+
+4. Initialize DocSearch: After including the DocSearch JavaScript library, add the following JavaScript code to initialize DocSearch. Make sure to replace the placeholders with the `apiKey` and `indexName` you received in the email:
+
+```html
+<script>
+  docsearch({
+    apiKey: 'your_api_key',
+    indexName: 'your_index_name',
+    inputSelector: '#search-input', // Update to the CSS selector of your website's search box
+    debug: false // Set to `true` to view debugging information in the console
+  });
+</script>
+```
+
+:::tip[GPT-4 Powered - Fixed]
+If using [withastro/docs](https://github.com/withastro/docs) as a template, there is a `DocSearchModal` component in the `src/components/Header/DocSearch.tsx` file that can be used directly. 
+:::
+
+5. Add a search box: Add an HTML element, such as an `<input>` tag, where you want to place the search box. Make sure its `id` or `class` attribute matches the `inputSelector` used when initializing DocSearch. For example:
+
+```html
+<input type="text" id="search-input" placeholder="Search documentation..." />
+```
+
+Now, when users use the search box on your documentation website, DocSearch will provide real-time search results. You can customize DocSearch's behavior and style as needed. For more details and advanced configuration options, please refer to the [DocSearch documentation](https://docsearch.algolia.com/docs/what-is-docsearch/).

@@ -15,4 +15,6 @@ export default [
 	{ text: 'Tutorials', header: true, type: 'learn', key: 'tutorials' },
 	{ text: 'Mint a COMMIT', slug: 'tutorial/0-introduction', key: 'mint-tutorial' },
 	{ text: 'Guides', header: true, type: 'learn', key: 'features' },
+	{ text: 'How to build Committable', header: true, type: 'learn', key: 'build-committable' },
+	{ text: 'Document Search', slug: 'build-committable/docs-search', key: 'docs-search' },
 ] as const;

@@ -1,0 +1,61 @@
+---
+title: 文档搜索配置
+description: Committable 如何进行文档索引
+i18nReady: true
+---
+import Button from '~/components/Button.astro'
+import ContributorList from '~/components/ContributorList.astro'
+import PackageManagerTabs from '~/components/tabs/PackageManagerTabs.astro'
+
+Committable 使用 [withastro/docs](https://github.com/withastro/docs) 作为基础进行文档网站的构建，同时使用 [Algolia DocSearch](https://docsearch.algolia.com/) 作为搜索引擎。
+
+## GhatGPT 给出的指南
+
+:::tip[GPT-4 Powered]
+如何使用 Algolia DocSearch 进行网站的文档索引？请介绍从申请到配置的全部过程。
+:::
+
+
+Algolia DocSearch 是一种免费的搜索服务，专为技术文档和开源项目而设计。下面是使用 Algolia DocSearch 进行网站文档索引的过程：
+
+1. 申请 DocSearch：访问 [Algolia DocSearch 网站](https://docsearch.algolia.com/)，点击 "Apply" 按钮。填写申请表，提供关于您的文档和项目的相关信息。提交申请后，您需要等待 Algolia 的团队审核。审核通过后，您将收到一个包含 DocSearch API Key 和索引名称的电子邮件。
+
+<Button href="https://docsearch.algolia.com/apply">Apply</Button>
+
+
+2. 在您的网站中添加 DocSearch CSS：在网站的 `<head>` 标签中，添加以下代码以引入 DocSearch 的样式表：
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css" />
+```
+
+3. 在您的网站中添加 DocSearch JavaScript：在网站的 `</body>` 标签之前，添加以下代码以引入 DocSearch 的 JavaScript 库：
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+```
+
+4. 初始化 DocSearch：在引入 DocSearch JavaScript 库的代码之后，添加以下 JavaScript 代码以初始化 DocSearch。请确保使用您在电子邮件中收到的 `apiKey` 和 `indexName` 替换相应的占位符：
+
+```html
+<script>
+  docsearch({
+    apiKey: 'your_api_key',
+    indexName: 'your_index_name',
+    inputSelector: '#search-input', // 更新为您网站搜索框的 CSS 选择器
+    debug: false // 设置为 `true` 以在控制台中查看调试信息
+  });
+</script>
+```
+
+:::tip[GPT-4 Powered - Fixed]
+如果使用 [withastro/docs](https://github.com/withastro/docs) 作为模板，在 `src/components/Header/DocSearch.tsx` 文件中有 `DocSearchModal` 组件，可以直接使用。
+:::
+
+5. 添加搜索框：在您希望放置搜索框的位置添加一个 HTML 元素，例如一个 `<input>` 标签。确保其 `id` 或 `class` 属性与初始化 DocSearch 时使用的 `inputSelector` 相匹配。例如：
+
+```html
+<input type="text" id="search-input" placeholder="搜索文档..." />
+```
+
+现在，当用户在您的文档网站中使用搜索框时，DocSearch 将提供实时搜索结果。您可以根据需要自定义 DocSearch 的行为和样式。更多详细信息和高级配置选项，请参阅 [DocSearch 文档](https://docsearch.algolia.com/docs/what-is-docsearch/)。
