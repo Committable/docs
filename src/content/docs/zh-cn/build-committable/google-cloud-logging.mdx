@@ -1,0 +1,41 @@
+---
+title: Google Cloud Logging
+description: Google Cloud Logging 机制和使用建议
+i18nReady: false
+---
+import Button from '~/components/Button.astro'
+import ContributorList from '~/components/ContributorList.astro'
+import PackageManagerTabs from '~/components/tabs/PackageManagerTabs.astro'
+
+
+## 什么是 Google Cloud Logging
+
+Cloud Logging 是 Google Cloud 提供的日志管理服务，可以用来收集、存储、分析和监控应用程序的日志。
+
+Cloud Logging 根据路由设置，将日志写入到不同的存储区域。
+
+![](https://cloud.google.com/static/logging/docs/images/routing-overview-17-09-21.png)
+
+
+## 计费模式
+
+1. 日志注入计费
+  - 前 50 GiB 免费
+  - 50 GiB 以上，按照  $0.50/GiB 计费
+2. 日志存储计费
+  - 按照 0.01 USD/GB/月 计费
+
+## 使用建议
+
+参考：[Cloud Logging pricing for Cloud Admins: How to approach it & save cost
+](https://cloud.google.com/blog/topics/cost-management/how-to-approach-cloud-logging-pricing-for-cloud-admins)
+
+1. 查看费用组成：
+  - Billing 网站（Cloud Console -> Billing -> Select the Billing Account -> Reports）：https://console.cloud.google.com/billing/
+2. 优化日志筛选条件：
+  - 必要时可以先关闭 Logging API：https://console.cloud.google.com/apis/api/logging.googleapis.com/metrics?project=[your-project-id]
+  - [开启日志筛选条件](https://cloud.google.com/logging/docs/routing/overview#exclusions)
+  - 查看日志写入细节，减少不必要写入：https://console.cloud.google.com/logs/query
+3. 设置用量提醒：
+  - 预警设置：https://console.cloud.google.com/monitoring/alerting/policies
+

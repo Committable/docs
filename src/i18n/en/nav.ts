@@ -17,4 +17,5 @@ export default [
 	{ text: 'Guides', header: true, type: 'learn', key: 'features' },
 	{ text: 'How to build Committable', header: true, type: 'learn', key: 'build-committable' },
 	{ text: 'Document Search', slug: 'build-committable/docs-search', key: 'docs-search' },
+	{ text: 'Google Cloud Logging', slug: 'build-committable/google-cloud-logging', key: 'google-cloud-logging' },
 ] as const;
