@@ -18,4 +18,9 @@ export default [
 	{ text: 'How to build Committable', header: true, type: 'learn', key: 'build-committable' },
 	{ text: 'Document Search', slug: 'build-committable/docs-search', key: 'docs-search' },
 	{ text: 'Google Cloud Logging', slug: 'build-committable/google-cloud-logging', key: 'google-cloud-logging' },
+
+	{ text: 'Activities', header: true, type: 'learn', key: 'activities' },
+	{ text: 'EDCON 2023 Super Demo Apply', slug: 'activities/edcon-2023-superdemo-application', key: 'edcon-2023-super-demo' },
+
+
 ] as const;
